@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🧪 ДЕМО — Музыкальный Квиз</title>
+<title>🎵 Музыкальный Квиз</title>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800;900&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -13,14 +13,12 @@ body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xm
 .gorb{position:fixed;width:350px;height:350px;border-radius:50%;filter:blur(100px);opacity:0.07;pointer-events:none;z-index:-1}
 .gorb.o1{background:var(--accent);top:-80px;right:-80px}.gorb.o2{background:var(--accent2);bottom:-80px;left:-80px}
 
-#banner{position:fixed;top:0;left:0;right:0;z-index:500;background:repeating-linear-gradient(45deg,#ff6b6b,#ff6b6b 10px,#f0c040 10px,#f0c040 20px);padding:7px 0;text-align:center;font-family:var(--fd);font-size:0.6rem;font-weight:800;color:#0a0a0f;letter-spacing:3px;text-transform:uppercase}
-
 /* Slides */
-.sl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;padding-top:55px;opacity:0;transform:translateY(25px);transition:opacity .45s ease,transform .45s ease;pointer-events:none;overflow-y:auto}
+.sl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;opacity:0;transform:translateY(25px);transition:opacity .45s ease,transform .45s ease;pointer-events:none;overflow-y:auto}
 .sl.on{opacity:1;transform:translateY(0);pointer-events:all}
 
 /* Scorebar */
-#sb{position:fixed;top:28px;left:0;right:0;height:50px;background:linear-gradient(180deg,rgba(10,10,15,.97),rgba(10,10,15,.85));backdrop-filter:blur(12px);display:none;align-items:center;justify-content:space-between;padding:0 1.2rem;z-index:100;border-bottom:1px solid rgba(255,255,255,.06);font-family:var(--fd)}
+#sb{position:fixed;top:0;left:0;right:0;height:50px;background:linear-gradient(180deg,rgba(10,10,15,.97),rgba(10,10,15,.85));backdrop-filter:blur(12px);display:none;align-items:center;justify-content:space-between;padding:0 1.2rem;z-index:100;border-bottom:1px solid rgba(255,255,255,.06);font-family:var(--fd)}
 #sb.vis{display:flex}
 .sp{display:flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600}
 .sp .sn{color:var(--dim);max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -37,7 +35,6 @@ body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xm
 .b1{background:linear-gradient(135deg,var(--accent),#ffb347);color:#0a0a0f}.b1:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(240,192,64,.3)}.b1:disabled{opacity:.4;cursor:default;transform:none;box-shadow:none}
 .b2{background:var(--surface2);color:var(--text);border:1px solid rgba(255,255,255,.1)}.b2:hover{background:rgba(255,255,255,.08)}
 .bs{padding:.5rem 1.1rem;font-size:.72rem}
-.bb{position:fixed;top:84px;left:1.2rem;padding:.35rem .9rem;border:none;border-radius:100px;background:rgba(255,255,255,.06);color:var(--dim);font-family:var(--fd);font-size:.65rem;font-weight:600;cursor:pointer;transition:all .2s;z-index:50}.bb:hover{background:rgba(255,255,255,.12);color:var(--text)}
 
 .ba{display:block;width:100%;max-width:480px;padding:.9rem 1.2rem;background:var(--surface2);border:2px solid rgba(255,255,255,.08);border-radius:14px;color:var(--text);font-family:var(--fb);font-size:.9rem;text-align:left;cursor:pointer;transition:all .2s;margin:.3rem auto}
 .ba:hover:not(.lk){border-color:var(--accent);background:rgba(240,192,64,.06);transform:translateX(3px)}
@@ -49,9 +46,7 @@ body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xm
 .ri{text-align:center;max-width:520px}
 .ri .rn{font-family:var(--fd);font-size:.7rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:.7rem;opacity:0;animation:fu .5s ease .2s forwards}
 .ri .rt{font-family:var(--fd);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:800;margin-bottom:.7rem;opacity:0;animation:fu .5s ease .35s forwards}
-.ri .rd{font-size:.9rem;color:var(--dim);line-height:1.6;margin-bottom:.7rem;opacity:0;animation:fu .5s ease .5s forwards}
-.ri .rr{font-size:.75rem;color:var(--accent);background:rgba(240,192,64,.08);border:1px solid rgba(240,192,64,.15);border-radius:10px;padding:.5rem 1rem;display:inline-block;margin-bottom:.4rem;opacity:0;animation:fu .5s ease .65s forwards}
-.ri .rw{font-size:.65rem;color:var(--accent2);margin-bottom:1.3rem;opacity:0;animation:fu .5s ease .75s forwards}
+.ri .rd{font-size:.9rem;color:var(--dim);line-height:1.6;margin-bottom:1.2rem;opacity:0;animation:fu .5s ease .5s forwards}
 @keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
 /* Question */
@@ -59,21 +54,20 @@ body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xm
 .qc .qb{font-family:var(--fd);font-size:.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:1rem}
 .qc .qt{font-family:var(--fd);font-size:clamp(.95rem,2.5vw,1.3rem);font-weight:600;line-height:1.5;margin-bottom:1.2rem}
 .ti{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .9rem;background:var(--surface2);border-radius:100px;font-size:.7rem;font-weight:600;margin-bottom:.8rem;border:1px solid rgba(255,255,255,.08)}
-.ti.cp{color:var(--accent2);border-color:rgba(255,107,107,.2)}.ti.co{color:var(--accent3);border-color:rgba(78,205,196,.2)}
+.ti.cp{color:var(--accent2);border-color:rgba(255,107,107,.2)}
 .pd{width:6px;height:6px;border-radius:50%;animation:pu 1.5s ease infinite}
-.ti.cp .pd{background:var(--accent2)}.ti.co .pd{background:var(--accent3)}
+.ti.cp .pd{background:var(--accent2)}
 @keyframes pu{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
 
 .tb{width:100%;max-width:480px;height:4px;background:rgba(255,255,255,.06);border-radius:2px;margin:.6rem auto;overflow:hidden}
 .tb .fl{height:100%;background:linear-gradient(90deg,var(--accent3),var(--accent));border-radius:2px;transition:width .3s linear}
 .tt{font-family:var(--fd);font-size:.85rem;font-weight:700;color:var(--accent);margin-bottom:.4rem}
-.st{font-size:.65rem;color:var(--accent3);margin-top:.3rem}
 .eq{font-size:clamp(1.8rem,6vw,3.2rem);margin-bottom:1rem;letter-spacing:.3rem}
 .ag{display:flex;flex-direction:column;width:100%;max-width:480px;margin:0 auto}
 .wt{font-size:.85rem;color:var(--dim);margin-top:.8rem;animation:bl 1.5s ease infinite}
 @keyframes bl{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* Feedback */
+/* Feedback overlay */
 .fo{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
 .fo.sh{opacity:1;pointer-events:all}
 .fo .bg{position:absolute;inset:0;background:rgba(10,10,15,.88);backdrop-filter:blur(8px)}
@@ -83,26 +77,30 @@ body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xm
 .fo .ft{font-family:var(--fd);font-size:1.3rem;font-weight:800;margin-bottom:.3rem}
 .fo .fd{font-size:.85rem;color:var(--dim);line-height:1.5;margin-bottom:.6rem}
 .fo .fp{font-family:var(--fd);font-size:.95rem;font-weight:700;color:var(--accent);margin-bottom:.5rem}
-.fo .fs{font-size:.75rem;color:var(--dim);margin-bottom:.8rem}
+.fo .fs{font-size:.75rem;color:var(--dim);margin-bottom:.3rem}
+.fo .fsc{margin:.6rem 0}
+.fo .fsc-row{display:flex;justify-content:center;gap:2rem;margin-bottom:.3rem}
+.fo .fsc-p{text-align:center}
+.fo .fsc-n{font-size:.7rem;color:var(--dim)}
+.fo .fsc-v{font-family:var(--fd);font-size:1.3rem;font-weight:800}
+.fo .fsc-v.ld{color:var(--accent)}
+.fo .fsc-v.tl{color:var(--dim)}
+.fo .fsc-lead{font-size:.7rem;margin-top:.2rem}
 
-/* Match pairs */
-.mg{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;width:100%;max-width:480px;margin:0 auto}
-.mi{padding:.6rem .8rem;background:var(--surface2);border:2px solid rgba(255,255,255,.08);border-radius:11px;text-align:center;font-size:.8rem;cursor:pointer;transition:all .2s;user-select:none}
-.mi:hover:not(.md){border-color:var(--accent);background:rgba(240,192,64,.06)}
-.mi.sel{border-color:var(--accent);background:rgba(240,192,64,.12);transform:scale(1.03)}
-.mi.md{border-color:var(--ok);background:rgba(34,197,94,.1);pointer-events:none}
-.mi.wf{border-color:var(--no);animation:shk .4s}
-.ml{font-family:var(--fd);font-size:.65rem;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:.4rem;text-align:center}
-
-/* Stake */
+/* Stake buttons */
 .sr{display:flex;gap:.4rem;justify-content:center;margin:.8rem 0}
 .sb_{padding:.5rem 1rem;border:2px solid rgba(255,255,255,.1);border-radius:11px;background:var(--surface2);color:var(--text);font-family:var(--fd);font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s}
 .sb_:hover{border-color:var(--accent)}.sb_.pk{border-color:var(--accent);background:rgba(240,192,64,.15);color:var(--accent)}
 
+/* Free text input */
+.fti{width:100%;max-width:480px;margin:0 auto;text-align:center}
+.fti .inp{width:100%;padding:.7rem 1rem;background:var(--surface2);border:2px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);font-family:var(--fb);font-size:.95rem;text-align:center;outline:none;transition:border-color .3s;margin-bottom:.5rem}
+.fti .inp:focus{border-color:var(--accent)}.fti .inp::placeholder{color:var(--dim)}
+
 /* Results */
 .res{text-align:center;max-width:560px}
-.res .crn{font-size:3.2rem;animation:fl 2s ease-in-out infinite;margin-bottom:.6rem}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.res .crn{font-size:3.2rem;animation:flt 2s ease-in-out infinite;margin-bottom:.6rem}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .res .wn{font-family:var(--fd);font-size:2rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.3rem}
 .fc{display:flex;gap:1.2rem;justify-content:center;margin:1.2rem 0}
 .fcd{background:var(--surface2);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1rem 1.8rem;text-align:center}
@@ -117,11 +115,37 @@ body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xm
 .cb{display:inline-flex;align-items:center;gap:.3rem;padding:.25rem .7rem;border-radius:100px;font-size:.7rem;font-weight:600;background:rgba(34,197,94,.1);color:var(--ok);border:1px solid rgba(34,197,94,.2);margin:.2rem}
 .status-line{margin-top:.8rem;font-size:.8rem;color:var(--dim);min-height:1.5em}
 
-@media(max-width:600px){.sl{padding:1rem}.fc{flex-direction:column;gap:.7rem}.bb{top:82px;left:.6rem}}
+/* Round summary */
+.rsm{text-align:center;max-width:480px}
+.rsm .rsm-t{font-family:var(--fd);font-size:1.2rem;font-weight:800;margin-bottom:.8rem}
+.rsm .rsm-sc{display:flex;justify-content:center;gap:2rem;margin:.8rem 0}
+.rsm .rsm-p{text-align:center;min-width:80px}
+.rsm .rsm-n{font-size:.75rem;color:var(--dim);margin-bottom:.2rem}
+.rsm .rsm-v{font-family:var(--fd);font-size:2rem;font-weight:900}
+.rsm .rsm-v.ld{color:var(--accent)}
+.rsm .rsm-bar{width:100%;height:8px;background:rgba(255,255,255,.06);border-radius:4px;margin:.5rem 0;overflow:hidden;display:flex}
+.rsm .rsm-bar div{height:100%;transition:width .5s ease}
+.rsm .rsm-msg{font-size:.85rem;color:var(--accent3);font-style:italic;margin:.6rem 0;line-height:1.5}
+
+/* Alias */
+.alias-card{font-family:var(--fd);font-size:1.3rem;font-weight:700;padding:1.5rem;background:var(--surface2);border:2px solid var(--accent);border-radius:16px;margin:1rem 0;min-height:80px;display:flex;align-items:center;justify-content:center;text-align:center}
+.alias-score-big{font-family:var(--fd);font-size:2.5rem;font-weight:900;color:var(--accent);margin:.5rem 0}
+
+/* Countdown overlay */
+.cd-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:250;background:rgba(10,10,15,.92);backdrop-filter:blur(12px)}
+.cd-num{font-family:var(--fd);font-size:6rem;font-weight:900;color:var(--accent);animation:cdpop .7s cubic-bezier(.34,1.56,.64,1)}
+@keyframes cdpop{from{transform:scale(0);opacity:0}70%{transform:scale(1.2);opacity:1}to{transform:scale(1)}}
+
+/* Sound guess play bar */
+.sg-bar{width:100%;max-width:480px;margin:1rem auto;padding:1rem;background:var(--surface2);border-radius:14px;border:1px solid rgba(255,255,255,.08)}
+.sg-bar .sg-time{font-family:var(--fd);font-size:.8rem;color:var(--accent);text-align:center;margin-bottom:.5rem}
+.sg-bar .sg-prog{width:100%;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.sg-bar .sg-fill{height:100%;background:linear-gradient(90deg,var(--accent4),var(--accent));border-radius:2px;transition:width .2s linear}
+
+@media(max-width:600px){.sl{padding:1rem}.fc{flex-direction:column;gap:.7rem}.fo .fsc-row{gap:1rem}}
 </style>
 </head>
 <body>
-<div id="banner">🧪 ДЕМО — тестовые вопросы • мультиплеер 🧪</div>
 <div class="gorb o1"></div><div class="gorb o2"></div>
 
 <div id="sb">
@@ -138,6 +162,7 @@ body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xm
     <div class="fd" id="fi_d"></div>
     <div class="fp" id="fi_p"></div>
     <div class="fs" id="fi_s"></div>
+    <div class="fsc" id="fi_sc"></div>
     <button class="btn b1 bs" id="fi_n">Дальше →</button>
   </div>
 </div>
@@ -159,8 +184,14 @@ firebase.initializeApp({
 });
 const db = firebase.database();
 
-// ═══ SYNC ═══
+// ═══════════════════════════════════════
+// SYNC — trigger-based (one clicks, both transition)
+// ═══════════════════════════════════════
 let ME=0, ROOM='', roomRef=null;
+const names={p1:'',p2:''};
+const scores={p1:0,p2:0};
+const OTHER=()=>ME===1?'p2':'p1';
+const MEKEY=()=>`p${ME}`;
 
 function ref(path){ return db.ref(`rooms/${ROOM}/${path}`); }
 function write(path,val){ return ref(path).set(val); }
@@ -168,387 +199,1343 @@ function read(path){ return ref(path).once('value').then(s=>s.val()); }
 function listen(path,cb){ ref(path).on('value',s=>cb(s.val())); }
 function unlisten(path){ ref(path).off(); }
 
-// ═══ AUDIO ═══
-const AU={c:null,i(){this.c=new(window.AudioContext||window.webkitAudioContext)},e(){if(!this.c)this.i();if(this.c.state==='suspended')this.c.resume()},p(t,f=440,d=.15){this.e();const o=this.c.createOscillator(),g=this.c.createGain();o.connect(g);g.connect(this.c.destination);o.type=t;o.frequency.value=f;g.gain.setValueAtTime(.12,this.c.currentTime);g.gain.exponentialRampToValueAtTime(.001,this.c.currentTime+d);o.start();o.stop(this.c.currentTime+d)},ok(){this.p('sine',523,.1);setTimeout(()=>this.p('sine',659,.1),100);setTimeout(()=>this.p('sine',784,.2),200)},no(){this.p('sawtooth',200,.15);setTimeout(()=>this.p('sawtooth',150,.25),150)},cl(){this.p('sine',800,.04)},rs(){[0,100,200,300].forEach((d,i)=>setTimeout(()=>this.p('sine',440*Math.pow(2,i/6),.1),d))},ff(){[523,659,784,1047].forEach((f,i)=>setTimeout(()=>this.p('sine',f,.3),i*150))},tk(){this.p('sine',1e3,.03)}};
-
-// ═══ SLIDES ═══
-let sls=[],aidx=-1,hist=[];
-const app=document.getElementById('app');
-function mk(h){const d=document.createElement('div');d.className='sl';d.innerHTML=h;app.appendChild(d);sls.push(d);return sls.length-1;}
-function go(i,addH=true){if(addH&&aidx>=0)hist.push(aidx);if(aidx>=0&&sls[aidx])sls[aidx].classList.remove('on');aidx=i;setTimeout(()=>{if(sls[i]){sls[i].classList.add('on');sls[i].scrollTop=0}},60);}
-function back(){if(hist.length)go(hist.pop(),false);}
-function showSB(v){document.getElementById('sb').classList.toggle('vis',v);}
-function setRL(t){document.getElementById('rl').textContent=t;}
-function setDots(c,n){const el=document.getElementById('dts');el.innerHTML='';for(let i=0;i<n;i++){const d=document.createElement('div');d.className=`dot${i<c?' dn':''}${i===c?' cu':''}`;el.appendChild(d);}}
-function updSc(a,b){document.getElementById('ss1').textContent=a;document.getElementById('ss2').textContent=b;}
-function bump(p){const e=document.getElementById('ss'+p);e.classList.add('bump');setTimeout(()=>e.classList.remove('bump'),300);}
-
-function showFB(ic,ti,de,pt,sp,cb){
-  document.getElementById('fi_i').textContent=ic;document.getElementById('fi_t').textContent=ti;
-  document.getElementById('fi_d').textContent=de;document.getElementById('fi_p').textContent=pt||'';
-  document.getElementById('fi_s').textContent=sp||'';document.getElementById('fo').classList.add('sh');
-  document.getElementById('fi_n').onclick=()=>{document.getElementById('fo').classList.remove('sh');if(cb)setTimeout(cb,200);}
+function trigger(name){ return write(`triggers/${name}`, Date.now()); }
+function onTrigger(name, cb){
+  let last=0;
+  listen(`triggers/${name}`, v=>{
+    if(v && v > last){ last=v; cb(); }
+  });
 }
-function confetti(){const c=['#f0c040','#ff6b6b','#4ecdc4','#a78bfa','#fff'];for(let i=0;i<50;i++){const p=document.createElement('div');p.className='cnf';p.style.cssText=`left:${Math.random()*100}vw;background:${c[~~(Math.random()*c.length)]};width:${4+Math.random()*7}px;height:${4+Math.random()*7}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*1.5}s`;document.body.appendChild(p);setTimeout(()=>p.remove(),6e3);}}
 
-// ═══ DATA ═══
+// ═══════════════════════════════════════
+// AUDIO
+// ═══════════════════════════════════════
+const AU={c:null,
+  i(){this.c=new(window.AudioContext||window.webkitAudioContext)},
+  e(){if(!this.c)this.i();if(this.c.state==='suspended')this.c.resume()},
+  p(t,f=440,d=.15){this.e();const o=this.c.createOscillator(),g=this.c.createGain();o.connect(g);g.connect(this.c.destination);o.type=t;o.frequency.value=f;g.gain.setValueAtTime(.12,this.c.currentTime);g.gain.exponentialRampToValueAtTime(.001,this.c.currentTime+d);o.start();o.stop(this.c.currentTime+d)},
+  ok(){this.p('sine',523,.1);setTimeout(()=>this.p('sine',659,.1),100);setTimeout(()=>this.p('sine',784,.2),200)},
+  no(){this.p('sawtooth',200,.15);setTimeout(()=>this.p('sawtooth',150,.25),150)},
+  cl(){this.p('sine',800,.04)},
+  ff(){[523,659,784,1047].forEach((f,i)=>setTimeout(()=>this.p('sine',f,.3),i*150))},
+  tk(){this.p('sine',1e3,.03)}
+};
+
+// ═══════════════════════════════════════
+// SONG PLAYER — mp3 from songs/ folder
+// ═══════════════════════════════════════
+let currentAudio = null;
+function playSong(src, startAt=0){
+  stopSong();
+  const a = new Audio(src);
+  a.currentTime = startAt;
+  a.play().catch(()=>{});
+  currentAudio = a;
+  return a;
+}
+function stopSong(){
+  if(currentAudio){ currentAudio.pause(); currentAudio.currentTime=0; currentAudio=null; }
+}
+// Play a celebration clip after correct answer
+function playClip(src, startAt=0, duration=8){
+  stopSong();
+  const a = new Audio(src);
+  a.currentTime = startAt;
+  a.play().catch(()=>{});
+  currentAudio = a;
+  setTimeout(()=>{ if(currentAudio===a){ a.pause(); currentAudio=null; } }, duration*1000);
+}
+
+// ═══════════════════════════════════════
+// FUZZY MATCH
+// ═══════════════════════════════════════
+const FM={
+  norm(s){return s.toLowerCase().replace(/ё/g,'е').replace(/[^\wа-яa-z0-9\s]/gi,'').trim()},
+  lev(a,b){
+    const m=a.length,n=b.length;
+    const d=Array.from({length:m+1},(_,i)=>Array.from({length:n+1},(_,j)=>i===0?j:j===0?i:0));
+    for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)
+      d[i][j]=a[i-1]===b[j-1]?d[i-1][j-1]:1+Math.min(d[i-1][j],d[i][j-1],d[i-1][j-1]);
+    return d[m][n];
+  },
+  check(input, accepted){
+    const n=this.norm(input);
+    if(!n) return {match:false,score:0};
+    for(const a of accepted){
+      const t=this.norm(a);
+      if(n===t) return {match:true,score:1,matched:a};
+      if(n.includes(t)||t.includes(n)) return {match:true,score:.9,matched:a};
+      const dist=this.lev(n,t);
+      const thr=Math.max(2,Math.floor(t.length*.25));
+      if(dist<=thr) return {match:true,score:.8,matched:a};
+    }
+    return {match:false,score:0};
+  }
+};
+
+// ═══════════════════════════════════════
+// SLIDE ENGINE
+// ═══════════════════════════════════════
+let sls=[], aidx=-1;
+const app=document.getElementById('app');
+
+function mk(h){
+  const d=document.createElement('div');
+  d.className='sl';d.innerHTML=h;app.appendChild(d);
+  sls.push(d);return sls.length-1;
+}
+function go(i){
+  if(aidx>=0&&sls[aidx]) sls[aidx].classList.remove('on');
+  aidx=i;
+  setTimeout(()=>{if(sls[i]){sls[i].classList.add('on');sls[i].scrollTop=0}},60);
+}
+
+// ═══════════════════════════════════════
+// QUIZ DATA — 6 rounds
+// ═══════════════════════════════════════
 const R=[
-  {type:'compete',w:1,name:'Допой строчку',desc:'Кто быстрее продолжит строчку? Скорость ответа = бонус!',rules:'⚔️ Соревнование • ×1',icon:'🎤',
-    qs:[{text:'«Белый снег, серый лёд, на растрескавшейся земле...»',opts:['...одеялом лоскутным на ней','...город в дорожной петле','...улицы тонут во мгле','...мёрзнет фонарь на столе'],c:1,det:'КИНО — «Звезда по имени Солнце»'}]},
-  {type:'compete',w:1,name:'Кто это?',desc:'Описание артиста — угадайте. Кто быстрее?',rules:'⚔️ Соревнование • ×1',icon:'🕵️',
-    qs:[{text:'Альбом «Горгород», баттл-рэп, Оксфорд, имя — Мирон.',opts:['Скриптонит','Oxxxymiron','Noize MC','Хаски'],c:1,det:'Oxxxymiron — выпускник Оксфорда.'}]},
-  {type:'coop',w:1,name:'Вместе! Сопоставь',desc:'Вы — команда! Обсуждайте голосом, один кликает. Сопоставьте артиста с фактом.',rules:'🤝 Кооп • ×1 за пару',icon:'🧩',
-    pairs:[{l:'Фредди Меркьюри',r:'Занзибар'},{l:'Oxxxymiron',r:'Оксфорд'},{l:'Земфира',r:'Баскетбол'},{l:'Пушной',r:'Галилео'}]},
-  {type:'private',w:1,name:'Факт или фейк',desc:'Каждый видит СВОЙ вопрос! Не подсказывайте друг другу.',rules:'⚔️ Личный • ×1',icon:'🤔',
-    q1:{fact:'Фредди Меркьюри родился на острове Занзибар.',ans:true,det:'Факт! Фарух Булсара родился на Занзибаре.'},
-    q2:{fact:'Курт Кобейн играл на бас-гитаре в Nirvana.',ans:false,det:'Фейк! Бас — Крист Новоселич.'}},
-  {type:'compete',w:2,name:'Эмодзи-шифр',desc:'Артист зашифрован эмодзи. Удвоенные очки!',rules:'⚔️ ×2!',icon:'😎',
-    qs:[{text:'',emoji:'🎸 🐒 ❄️',opts:['Gorillaz','Arctic Monkeys','The Hatters','Imagine Dragons'],c:1,det:'Гитара + обезьяны + арктика = Arctic Monkeys'}]},
-  {type:'stake',w:2,name:'Ставка',desc:'Факты по одному. Поставьте 1–3 на уверенность. Угадали — получите ×2 ставки. Нет — минус.',rules:'🎰 Риск • ×2',icon:'💎',
-    facts:['Она из Луизианы.','Дебют в 15 лет.','Хит «...Baby One More Time».'],opts:['Рианна','Мадонна','Бритни Спирс','К. Агилера'],c:2,det:'Бритни Спирс!'},
-  {type:'blitz',w:3,name:'🔥 Финальный блиц',desc:'5 быстрых вопросов! УТРОЕННЫЕ очки — может ВСЁ перевернуть!',rules:'⚔️ ×3!!!',icon:'🔥',
+  // ────── Round 1: Допой строчку (×1) ──────
+  {
+    type:'compete', w:1, name:'Допой строчку', icon:'🎤',
+    desc:'Угадай продолжение песни. Чем быстрее — тем больше бонус!',
+    time:15,
     qs:[
-      {text:'Кто написал «Imagine»?',opts:['Пол Маккартни','Джон Леннон','Дж. Харрисон','Ринго Старр'],c:1},
-      {text:'Из какой страны ABBA?',opts:['Норвегия','Дания','Швеция','Финляндия'],c:2},
-      {text:'Настоящее имя 50 Cent?',opts:['Кёртис Джексон','М. Мэтерс','Шон Картер','А. Янг'],c:0},
-      {text:'«Bohemian Rhapsody»?',opts:['Led Zeppelin','Pink Floyd','Queen','The Beatles'],c:2},
-      {text:'Сколько в Radiohead?',opts:['3','4','5','6'],c:2}
-    ]}
+      {
+        text:'🎵 «Перемен требуют наши сердца...»',
+        opts:['Перемен требуют наши глаза','Перемен ждём мы каждый день','Перемен! — мы ждём перемен','Перемен хочу я так сильно'],
+        c:2, det:'КИНО — Перемен (1986). Одна из главных песен перестройки.',
+        clip:'songs/kino_peremen.mp3', clipStart:60
+      },
+      {
+        text:'🎵 «Я свободен, словно птица в небесах...»',
+        opts:['Я свободен, словно ветер в поле','Я свободен, я забыл, что значит страх','Я свободен, я лечу куда хочу','Я свободен, мне не нужен этот мир'],
+        c:1, det:'Ария / Кипелов — Я свободен (2001). Классика русского рока.',
+        clip:'songs/aria_svoboden.mp3', clipStart:90
+      },
+      {
+        text:'🎵 «Выхода нет, мой дом — моя крепость...»',
+        opts:['И двери закрыты навек','Дверь в стене, я замурован','Но войти в него мне не дано','Здесь полночь и тишина'],
+        c:0, det:'Сплин — Выхода нет (1997). Хит, который знает каждый.',
+        clip:'songs/splean_vihoda.mp3', clipStart:45
+      },
+      {
+        text:'🎵 «Группа крови — на рукаве...»',
+        opts:['Мой порядковый номер — на рукаве','И на куртке моей знак','Мой позывной номер на рукаве','Мой серийный номер — в паспорте'],
+        c:0, det:'КИНО — Группа крови (1988). Один из главных хитов Виктора Цоя.',
+        clip:'songs/kino_gruppa.mp3', clipStart:30
+      }
+    ]
+  },
+
+  // ────── Round 2: Эмодзи-шифр (×1) ──────
+  {
+    type:'emoji', w:1, name:'Эмодзи-шифр', icon:'🔮',
+    desc:'Артист или песня зашифрованы эмодзи. Введи ответ!',
+    time:20,
+    qs:[
+      {
+        emoji:'👑 🤡 🏰 🪦 ⚰️',
+        answers:{song:['Король и Шут'],artist:['Король и Шут','КиШ']},
+        det:'Король и Шут — легендарная панк-группа с мрачными сказками.'
+      },
+      {
+        emoji:'🌊 🇺🇦 🎸 💙💛 🌅',
+        answers:{song:['Океан Ельзи'],artist:['Океан Ельзи','ОЕ','Okean Elzy']},
+        det:'Океан Ельзи — главная украинская рок-группа. Вакарчук — фронтмен.'
+      },
+      {
+        emoji:'💊 🎤 🔥 🐉 🖤',
+        answers:{song:['Баста','Василий Вакуленко'],artist:['Баста','Ноггано']},
+        det:'Баста — один из самых успешных рэперов России.'
+      },
+      {
+        emoji:'💎 📝 🎭 🧠 ⚔️',
+        answers:{song:['Oxxxymiron'],artist:['Oxxxymiron','Окси','Оксимирон']},
+        det:'Oxxxymiron — главный баттл-рэпер рунета.'
+      },
+      {
+        emoji:'🌍 🔥 🐲 ✨ 🪨',
+        answers:{song:['Imagine Dragons'],artist:['Imagine Dragons']},
+        det:'Imagine Dragons — мировые хитмейкеры из Лас-Вегаса.'
+      }
+    ]
+  },
+
+  // ────── Round 3: Ставка (×2) ──────
+  {
+    type:'stake', w:2, name:'Ставка', icon:'🎰',
+    desc:'Факты открываются один за другим. Поставь 1-3 очка — угадаешь ×2, нет — теряешь ставку!',
+    time:20,
+    qs:[
+      {
+        facts:[
+          'Этот артист начал карьеру с YouTube-каверов',
+          'Он сотрудничал с Тимати и Егором Кридом',
+          'Его настоящее имя — Алишер Моргенштерн'
+        ],
+        opts:['Morgenshtern','Элджей','Feduk','Big Baby Tape'],
+        c:0, det:'Morgenshtern — самый скандальный рэпер рунета.'
+      },
+      {
+        facts:[
+          'Эта группа из Минска',
+          'Они поют на русском, но с белорусским акцентом',
+          'Их хит «Мотылёк» знает вся молодёжь СНГ'
+        ],
+        opts:['Макс Корж','Би-2','Ляпис Трубецкой','Сплин'],
+        c:0, det:'Макс Корж — белорусский артист, собирающий стадионы.',
+        clip:'songs/max_korj_motylki.mp3', clipStart:50
+      },
+      {
+        facts:[
+          'Это женщина-артист с мощным голосом',
+          'Она известна исполнением народных песен в современной аранжировке',
+          'Её версия «Конь» стала вирусной'
+        ],
+        opts:['Пелагея','Земфира','Монеточка','Алёна Швец'],
+        c:0, det:'Пелагея — уникальный голос русской музыки.',
+        clip:'songs/pelageya_koni.mp3', clipStart:40
+      }
+    ]
+  },
+
+  // ────── Round 4: Объясни песню (×2) — Alias ──────
+  {
+    type:'alias', w:2, name:'Объясни песню', icon:'🗣️',
+    desc:'Один объясняет песню словами (не называя!), другой угадывает. 60 секунд!',
+    time:60,
+    cards:[
+      {song:'Звезда по имени Солнце', artist:'КИНО', hint:'Цой, космос, звезда'},
+      {song:'Моё море', artist:'Земфира', hint:'Земфира, вода, грусть'},
+      {song:'Мама', artist:'Баста', hint:'Баста, родители, любовь'},
+      {song:'Где нас нет', artist:'Oxxxymiron', hint:'Окси, эмиграция, тоска'},
+      {song:'Believer', artist:'Imagine Dragons', hint:'Драконы, вера, англ.'},
+      {song:'Лесник', artist:'Король и Шут', hint:'КиШ, лес, страшилка'},
+      {song:'Полковнику никто не пишет', artist:'Би-2', hint:'Би-2, военный, одиночество'},
+      {song:'Районы-кварталы', artist:'Звери', hint:'город, молодёжь'},
+      {song:'Без тебя', artist:'IOWA', hint:'разлука, грусть, поп'},
+      {song:'Всё идёт по плану', artist:'Гражданская Оборона', hint:'Летов, панк, хаос'}
+    ]
+  },
+
+  // ────── Round 5: Угадай мелодию (×3) ──────
+  {
+    type:'sound_guess', w:3, name:'Угадай мелодию', icon:'🎧',
+    desc:'Слушай мелодию и угадай песню. Чем раньше ответишь — тем больше очков!',
+    time:30,
+    qs:[
+      {
+        src:'songs/kino_peremen.mp3', startAt:0,
+        answers:{song:['Перемен','Хочу перемен'],artist:['КИНО','Кино','Цой']},
+        det:'КИНО — Перемен'
+      },
+      {
+        src:'songs/zemfira_hodit.mp3', startAt:0,
+        answers:{song:['ПММЛ','П.М.М.Л.','Почему мне мало любви'],artist:['Земфира']},
+        det:'Земфира — ПММЛ'
+      },
+      {
+        src:'songs/kish_lesnik.mp3', startAt:0,
+        answers:{song:['Лесник'],artist:['Король и Шут','КиШ']},
+        det:'Король и Шут — Лесник'
+      },
+      {
+        src:'songs/id_believer.mp3', startAt:0,
+        answers:{song:['Believer'],artist:['Imagine Dragons']},
+        det:'Imagine Dragons — Believer'
+      },
+      {
+        src:'songs/oxxy_gde.mp3', startAt:0,
+        answers:{song:['Где нас нет'],artist:['Oxxxymiron','Окси']},
+        det:'Oxxxymiron — Где нас нет'
+      }
+    ]
+  },
+
+  // ────── Round 6: Финальный блиц (×3) ──────
+  {
+    type:'blitz', w:3, name:'Финальный блиц', icon:'⚡',
+    desc:'5 быстрых вопросов по 10 секунд. Утроенные очки — тут решается всё!',
+    time:10,
+    qs:[
+      {
+        text:'Кто спел «Выхода нет»?',
+        opts:['Сплин','Земфира','Мумий Тролль','Би-2'],
+        c:0, det:'Сплин — альбом «Гранатовый альбом» (1998).'
+      },
+      {
+        text:'«Полковнику никто не пишет» — это песня группы...',
+        opts:['Сплин','Король и Шут','Би-2','Звери'],
+        c:2, det:'Би-2 — один из главных хитов группы.'
+      },
+      {
+        text:'Кто из этих артистов — белорус?',
+        opts:['Макс Корж','Баста','ЛСП','Скриптонит'],
+        c:0, det:'Макс Корж из Минска, хотя ЛСП тоже из Минска!'
+      },
+      {
+        text:'«Мотылёк» — хит какого артиста?',
+        opts:['Дайте танк!','Три дня дождя','Макс Корж','Электрофорез'],
+        c:2, det:'Макс Корж — «Мотылёк» (2017), хит на стадионах.'
+      },
+      {
+        text:'Настоящее имя Oxxxymiron?',
+        opts:['Мирон Фёдоров','Алексей Долматов','Тимур Ильдарович','Дмитрий Кузнецов'],
+        c:0, det:'Мирон Янович Фёдоров — его настоящее имя.'
+      }
+    ]
+  }
 ];
 
-// ═══ BUILD SLIDES ═══
-// 0: Lobby
-mk(`<div style="text-align:center;max-width:460px">
-  <div style="font-size:2.3rem;margin-bottom:.4rem">🧪🎵</div>
-  <h1 style="font-family:var(--fd);font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.4rem">ДЕМО-КВИЗ</h1>
-  <p style="color:var(--dim);font-size:.8rem;margin-bottom:1.2rem;line-height:1.5">Мультиплеер на двоих. 7 раундов.<br><strong style="color:var(--accent2)">Финал ×3 — переворачивает всё!</strong></p>
-  <input class="inp" id="iName" placeholder="Ваше имя" style="margin-bottom:.8rem"/>
-  <div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap">
-    <button class="btn b1" id="bCr">Создать комнату</button>
-    <button class="btn b2" id="bJn">Присоединиться</button>
-  </div>
-  <div id="jnUI" style="display:none;margin-top:.8rem">
-    <input class="inp" id="iCode" placeholder="Код комнаты" style="margin-bottom:.4rem;text-transform:uppercase"/>
-    <br><button class="btn b1 bs" id="bJnGo" style="margin-top:.4rem">Войти →</button>
-  </div>
-  <div class="status-line" id="lSt"></div>
-</div>`);
+// ═══════════════════════════════════════
+// SCORING
+// ═══════════════════════════════════════
+function addScore(pts){
+  scores[MEKEY()] += pts;
+  write(`scores/${MEKEY()}`, scores[MEKEY()]);
+  updScorebar();
+}
+function updScorebar(){
+  const el1 = document.getElementById('ss1');
+  const el2 = document.getElementById('ss2');
+  if(el1) el1.textContent = scores.p1;
+  if(el2) el2.textContent = scores.p2;
+  // Bump animation
+  const myEl = ME===1 ? el1 : el2;
+  if(myEl){ myEl.classList.add('bump'); setTimeout(()=>myEl.classList.remove('bump'),300); }
+}
+function updDots(ri, qi, total){
+  const rl = document.getElementById('rl');
+  const dts = document.getElementById('dts');
+  if(rl) rl.textContent = R[ri].name;
+  if(dts){
+    dts.innerHTML='';
+    for(let i=0;i<total;i++){
+      const d=document.createElement('div');
+      d.className='dot'+(i<qi?' dn':'')+(i===qi?' cu':'');
+      dts.appendChild(d);
+    }
+  }
+}
 
-// 1: Waiting
-mk(`<div style="text-align:center;max-width:420px">
-  <button class="bb" onclick="back()">← Назад</button>
-  <div style="font-size:1.8rem;margin-bottom:.4rem">📡</div>
-  <p style="font-size:.8rem;color:var(--dim);margin-bottom:.5rem">Код комнаты:</p>
-  <div class="lc" id="shCode">—</div>
-  <p style="font-size:.75rem;color:var(--dim);margin-bottom:.8rem">Отправьте код второму игроку</p>
-  <div id="lPlrs"></div>
-  <div class="wt" id="wMsg">Ожидание второго игрока...</div>
-  <button class="btn b1" id="bSt" style="display:none;margin-top:.8rem">Начать квиз! →</button>
-</div>`);
+// ═══════════════════════════════════════
+// FEEDBACK OVERLAY
+// ═══════════════════════════════════════
+const fo = document.getElementById('fo');
+function showFeedback(ok, pts, detail, cb){
+  document.getElementById('fi_i').textContent = ok ? '✅' : '❌';
+  document.getElementById('fi_t').textContent = ok ? (pts>2?'Отлично!':'Правильно!') : 'Неправильно';
+  document.getElementById('fi_d').textContent = detail||'';
+  document.getElementById('fi_p').textContent = pts>0 ? `+${pts} очк.` : pts<0 ? `${pts} очк.` : '';
+  // Speed text
+  document.getElementById('fi_s').textContent = '';
+  // Scores
+  const sc = document.getElementById('fi_sc');
+  const lead = scores[MEKEY()] >= scores[OTHER()] ? MEKEY() : OTHER();
+  const diff = Math.abs(scores.p1 - scores.p2);
+  sc.innerHTML = `
+    <div class="fsc-row">
+      <div class="fsc-p"><div class="fsc-n">${names.p1||'Игрок 1'}</div><div class="fsc-v ${lead==='p1'?'ld':'tl'}">${scores.p1}</div></div>
+      <div class="fsc-p"><div class="fsc-n">${names.p2||'Игрок 2'}</div><div class="fsc-v ${lead==='p2'?'ld':'tl'}">${scores.p2}</div></div>
+    </div>
+    ${diff>0?`<div class="fsc-lead">${names[lead]||lead} ведёт с отрывом ${diff}</div>`:`<div class="fsc-lead">Ничья!</div>`}
+  `;
+  fo.classList.add('sh');
+  if(ok) AU.ok(); else AU.no();
+  // Play clip if available
+  const nextBtn = document.getElementById('fi_n');
+  nextBtn.onclick = ()=>{
+    fo.classList.remove('sh');
+    stopSong();
+    if(cb) cb();
+  };
+}
 
-// Round slides
-let RS={};
-R.forEach((r,ri)=>{
-  const intro=mk(`<div class="ri">
-    <button class="bb" onclick="back()">← Назад</button>
-    <div class="rn">Раунд ${ri+1} из ${R.length}</div>
-    <div class="rt">${r.icon} ${r.name}</div>
-    <div class="rd">${r.desc}</div>
-    <div class="rr">${r.rules}</div>
-    <div class="rw">Множитель: ×${r.w}</div>
-    <button class="btn b1 rgo" data-ri="${ri}">Поехали →</button>
-  </div>`);
-  RS[ri]={intro,q:[]};
+// ═══════════════════════════════════════
+// TIMER
+// ═══════════════════════════════════════
+let timerInterval=null, timerRemaining=0;
+function startTimer(seconds, ttEl, tbEl, onExpire){
+  clearInterval(timerInterval);
+  timerRemaining = seconds;
+  const total = seconds;
+  const update = ()=>{
+    if(ttEl) ttEl.textContent = timerRemaining;
+    if(tbEl){
+      const pct = Math.max(0, (timerRemaining/total)*100);
+      tbEl.style.width = pct+'%';
+    }
+  };
+  update();
+  timerInterval = setInterval(()=>{
+    timerRemaining--;
+    if(timerRemaining <= 0){
+      timerRemaining = 0;
+      update();
+      clearInterval(timerInterval);
+      timerInterval = null;
+      if(onExpire) onExpire();
+    } else {
+      update();
+      if(timerRemaining <= 5) AU.tk();
+    }
+  },1000);
+}
+function stopTimer(){
+  clearInterval(timerInterval);
+  timerInterval=null;
+}
 
-  if(r.type==='compete'||r.type==='blitz'){
-    r.qs.forEach((q,qi)=>{
-      const em=q.emoji?`<div class="eq">${q.emoji}</div>`:'';
-      const tx=q.text?`<div class="qt">${q.text}</div>`:'';
-      const secs=r.type==='blitz'?10:15;
-      RS[ri].q.push(mk(`<div class="qc">
-        <button class="bb" onclick="back()">← Назад</button>
-        <div class="ti cp"><div class="pd"></div> Кто быстрее!</div>
-        <div class="qb">Раунд ${ri+1} ${r.type==='blitz'?'• Блиц '+(qi+1)+'/'+r.qs.length:'• ×'+r.w}</div>
-        ${em}${tx}
-        <div class="tb"><div class="fl" id="tf_${ri}_${qi}" style="width:100%"></div></div>
-        <div class="tt" id="tx_${ri}_${qi}">${secs}</div>
-        <div class="ag" id="ag_${ri}_${qi}">${q.opts.map((o,oi)=>`<button class="ba" data-ri="${ri}" data-qi="${qi}" data-oi="${oi}"><span class="lt">${'ABCD'[oi]}</span>${o}</button>`).join('')}</div>
-        <div class="st" id="st_${ri}_${qi}"></div>
-        <div class="wt" id="wt_${ri}_${qi}" style="display:none">Ждём соперника...</div>
-      </div>`));
+// ═══════════════════════════════════════
+// ENCOURAGING PHRASES
+// ═══════════════════════════════════════
+function getMotivation(ri){
+  const myS = scores[MEKEY()], theirS = scores[OTHER()];
+  const isLast = ri >= R.length-1;
+  const nextW = ri < R.length-1 ? R[ri+1].w : 0;
+  if(isLast) return '🏁 Это был финал! Сейчас узнаем результат!';
+  if(myS < theirS){
+    if(nextW>=3) return '😤 Не сдавайся! Следующий раунд ×'+nextW+' — один вопрос может всё изменить!';
+    return '💪 Ещё всё впереди! Множитель будет расти!';
+  }
+  if(myS > theirS){
+    return '🔥 Отличная работа! Но расслабляться рано — множитель растёт!';
+  }
+  return '⚖️ Равная борьба! Кто дрогнет первым?';
+}
+
+// ═══════════════════════════════════════
+// LOBBY
+// ═══════════════════════════════════════
+function buildLobby(){
+  // Welcome
+  const wi = mk(`
+    <div style="text-align:center;max-width:480px">
+      <div style="font-size:3rem;margin-bottom:.5rem">🎵</div>
+      <div style="font-family:var(--fd);font-size:clamp(1.5rem,4vw,2.2rem);font-weight:900;margin-bottom:.3rem">Музыкальный Квиз</div>
+      <div style="color:var(--dim);margin-bottom:1.5rem;font-size:.9rem">Квиз на двоих — играйте удалённо!</div>
+      <div style="margin-bottom:.8rem">
+        <input class="inp" id="myName" placeholder="Твоё имя" maxlength="15">
+      </div>
+      <div style="display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap">
+        <button class="btn b1" id="bcr">Создать комнату</button>
+        <button class="btn b2" id="bjn">Присоединиться</button>
+      </div>
+    </div>
+  `);
+
+  // Create room
+  const ci = mk(`
+    <div style="text-align:center;max-width:480px">
+      <div style="font-family:var(--fd);font-size:1.2rem;font-weight:800;margin-bottom:.8rem">Твоя комната</div>
+      <div class="lc" id="roomCode">----</div>
+      <div style="color:var(--dim);font-size:.8rem;margin-bottom:.5rem">Скопируй код и отправь другу</div>
+      <div class="status-line" id="hostStatus">Ждём второго игрока...</div>
+      <button class="btn b1" id="bstart" disabled>Начать квиз</button>
+    </div>
+  `);
+
+  // Join room
+  const ji = mk(`
+    <div style="text-align:center;max-width:480px">
+      <div style="font-family:var(--fd);font-size:1.2rem;font-weight:800;margin-bottom:.8rem">Введи код комнаты</div>
+      <input class="inp" id="joinCode" placeholder="ABCD" maxlength="4" style="text-transform:uppercase;letter-spacing:6px;font-size:1.5rem;font-weight:800">
+      <div class="status-line" id="joinStatus"></div>
+      <div style="margin-top:.8rem"><button class="btn b1" id="bjoin">Войти</button></div>
+    </div>
+  `);
+
+  go(wi);
+
+  // Handlers
+  document.getElementById('bcr').onclick = ()=>{ createRoom(); go(ci); };
+  document.getElementById('bjn').onclick = ()=>go(ji);
+  document.getElementById('bjoin').onclick = ()=>joinRoom();
+  document.getElementById('bstart').onclick = ()=>startGame();
+}
+
+function genCode(){ return Array.from({length:4},()=>'ABCDEFGHJKLMNPQRSTUVWXYZ'[Math.random()*24|0]).join(''); }
+
+async function createRoom(){
+  AU.cl();
+  ME=1;
+  ROOM=genCode();
+  const myName = document.getElementById('myName').value.trim()||'Игрок 1';
+  names.p1 = myName;
+  document.getElementById('roomCode').textContent = ROOM;
+  await write('host', myName);
+  await write('phase','waiting');
+  await write('scores/p1', 0);
+  await write('scores/p2', 0);
+
+  // Listen for player 2
+  listen('guest', val=>{
+    if(val){
+      names.p2 = val;
+      document.getElementById('hostStatus').innerHTML = `<span class="cb">✓ ${val} подключился!</span>`;
+      document.getElementById('bstart').disabled = false;
+    }
+  });
+}
+
+async function joinRoom(){
+  AU.cl();
+  ME=2;
+  ROOM = document.getElementById('joinCode').value.trim().toUpperCase();
+  const myName = document.getElementById('myName').value.trim()||'Игрок 2';
+  names.p2 = myName;
+
+  const status = document.getElementById('joinStatus');
+  const host = await read('host');
+  if(!host){ status.textContent='Комната не найдена'; return; }
+  names.p1 = host;
+  await write('guest', myName);
+  status.innerHTML = `<span class="cb">✓ Подключено! Хост: ${host}</span>`;
+
+  // Wait for game start
+  listen('phase', val=>{
+    if(val==='playing'){
+      unlisten('phase');
+      initGame();
+    }
+  });
+}
+
+async function startGame(){
+  AU.cl();
+  await write('phase','playing');
+  initGame();
+}
+
+// ═══════════════════════════════════════
+// GAME ENGINE
+// ═══════════════════════════════════════
+let currentRound=0, currentQ=0;
+
+function initGame(){
+  // Show scorebar
+  document.getElementById('sb').classList.add('vis');
+  document.getElementById('sn1').textContent = names.p1||'P1';
+  document.getElementById('sn2').textContent = names.p2||'P2';
+  // Highlight my name
+  if(ME===1) document.getElementById('sp1').classList.add('me');
+  else document.getElementById('sp2').classList.add('me');
+
+  // Listen for opponent scores
+  listen(`scores/${OTHER()}`, val=>{
+    if(val!==null) { scores[OTHER()] = val; updScorebar(); }
+  });
+
+  // Listen for triggers from opponent (for sync)
+  onTrigger('next_question', ()=>{
+    // Opponent moved to next — we follow
+  });
+
+  currentRound = 0;
+  startRound(0);
+}
+
+// ═══════════════════════════════════════
+// ROUND RENDERING
+// ═══════════════════════════════════════
+function startRound(ri){
+  currentRound = ri;
+  if(ri >= R.length){
+    showResults();
+    return;
+  }
+  const r = R[ri];
+  // Build intro slide
+  const introIdx = mk(`
+    <div class="ri">
+      <div class="rn">Раунд ${ri+1} из ${R.length}</div>
+      <div class="rt">${r.icon} ${r.name}</div>
+      <div class="rd">${r.desc}</div>
+      <div style="margin-bottom:.5rem"><span style="font-family:var(--fd);font-size:.75rem;color:var(--accent)">×${r.w}</span></div>
+      <button class="btn b1 ri-go">Поехали! 🚀</button>
+    </div>
+  `);
+
+  go(introIdx);
+
+  // "Поехали" button — trigger for both players
+  sls[introIdx].querySelector('.ri-go').onclick = ()=>{
+    AU.cl();
+    trigger(`round_${ri}_start`);
+    launchRound(ri);
+  };
+
+  // Listen for trigger from other player
+  onTrigger(`round_${ri}_start`, ()=>{
+    launchRound(ri);
+  });
+}
+
+let roundLaunched = {};
+function launchRound(ri){
+  if(roundLaunched[ri]) return;
+  roundLaunched[ri] = true;
+  const r = R[ri];
+
+  switch(r.type){
+    case 'compete': runCompete(ri); break;
+    case 'emoji': runEmoji(ri); break;
+    case 'stake': runStake(ri); break;
+    case 'alias': runAlias(ri); break;
+    case 'sound_guess': runSoundGuess(ri); break;
+    case 'blitz': runBlitz(ri); break;
+  }
+}
+
+// ────── COMPETE ──────
+function runCompete(ri){
+  const r = R[ri];
+  let qi = 0;
+  function showQ(qi){
+    if(qi >= r.qs.length){ showRoundSummary(ri); return; }
+    const q = r.qs[qi];
+    updDots(ri, qi, r.qs.length);
+    const letters = ['A','B','C','D'];
+    const idx = mk(`
+      <div class="qc">
+        <div class="qb">Вопрос ${qi+1} из ${r.qs.length}</div>
+        <div class="tt" id="tt_${ri}_${qi}">${r.time}</div>
+        <div class="tb"><div class="fl" id="tb_${ri}_${qi}" style="width:100%"></div></div>
+        <div class="qt">${q.text}</div>
+        <div class="ag">
+          ${q.opts.map((o,i)=>`<button class="ba copt" data-i="${i}"><span class="lt">${letters[i]}</span>${o}</button>`).join('')}
+        </div>
+      </div>
+    `);
+    go(idx);
+
+    const startTime = Date.now();
+    let answered = false;
+
+    // Timer
+    startTimer(r.time,
+      document.getElementById(`tt_${ri}_${qi}`),
+      document.getElementById(`tb_${ri}_${qi}`),
+      ()=>{
+        if(!answered){
+          answered=true;
+          // Time up — 0 points, show correct
+          const btns = sls[idx].querySelectorAll('.copt');
+          btns.forEach((b,i)=>{
+            b.classList.add('lk');
+            if(i===q.c) b.classList.add('ok');
+          });
+          showFeedback(false, 0, q.det, ()=>{
+            if(q.clip) playClip(q.clip, q.clipStart||0, 6);
+            trigger(`compete_${ri}_${qi}_done`);
+            nextCompeteQ(ri, qi);
+          });
+        }
+      }
+    );
+
+    // Click handler
+    sls[idx].querySelectorAll('.copt').forEach(btn=>{
+      btn.onclick = ()=>{
+        if(answered) return;
+        answered = true;
+        AU.cl();
+        stopTimer();
+        const pick = parseInt(btn.dataset.i);
+        const ok = pick === q.c;
+        const elapsed = (Date.now()-startTime)/1000;
+        let pts = 0;
+        if(ok){
+          pts = 1;
+          if(elapsed<5) pts+=2;
+          else if(elapsed<10) pts+=1;
+          pts *= r.w;
+          addScore(pts);
+        }
+        // Show correct/wrong
+        const btns = sls[idx].querySelectorAll('.copt');
+        btns.forEach((b,i)=>{
+          b.classList.add('lk');
+          if(i===q.c) b.classList.add('ok');
+          if(i===pick && !ok) b.classList.add('no');
+        });
+        showFeedback(ok, pts, q.det, ()=>{
+          if(ok && q.clip) playClip(q.clip, q.clipStart||0, 6);
+          trigger(`compete_${ri}_${qi}_done`);
+          nextCompeteQ(ri, qi);
+        });
+      };
     });
   }
 
-  if(r.type==='coop'){
-    const L=r.pairs.map(p=>p.l).sort(()=>Math.random()-.5);
-    const Ri=r.pairs.map(p=>p.r).sort(()=>Math.random()-.5);
-    RS[ri].q.push(mk(`<div class="qc" style="max-width:520px">
-      <button class="bb" onclick="back()">← Назад</button>
-      <div class="ti co"><div class="pd"></div> Вы — команда!</div>
-      <div class="qb">Раунд ${ri+1} • Кооператив</div>
-      <div class="qt">Соедините артиста с фактом</div>
-      <div class="mg">
-        <div><div class="ml">Артист</div>${L.map(l=>`<div class="mi" data-s="l" data-v="${l}">${l}</div>`).join('')}</div>
-        <div><div class="ml">Факт</div>${Ri.map(r=>`<div class="mi" data-s="r" data-v="${r}">${r}</div>`).join('')}</div>
-      </div>
-      <div id="mSt" style="margin-top:.6rem;font-size:.8rem;color:var(--dim)">Выберите одного слева и одного справа</div>
-    </div>`));
+  function nextCompeteQ(ri, qi){
+    // Wait for opponent too
+    const next = ()=> showQ(qi+1);
+    // Either we trigger or opponent triggers — both move
+    let moved = false;
+    const tryMove = ()=>{ if(!moved){ moved=true; next(); } };
+    onTrigger(`compete_${ri}_${qi}_done`, tryMove);
+    // If we just triggered above, tryMove may fire immediately via our own trigger
   }
 
-  if(r.type==='private'){
-    RS[ri].q.push(mk(`<div class="qc">
-      <button class="bb" onclick="back()">← Назад</button>
-      <div class="ti cp"><div class="pd"></div> Свой вопрос!</div>
-      <div class="qb">Раунд ${ri+1} • Личный</div>
-      <div class="qt" id="pQ">Загрузка...</div>
-      <div class="ag">
-        <button class="ba" data-ri="${ri}" data-qi="0" data-oi="true" style="text-align:center"><span class="lt" style="background:rgba(34,197,94,.2);color:var(--ok)">✓</span> Факт</button>
-        <button class="ba" data-ri="${ri}" data-qi="0" data-oi="false" style="text-align:center"><span class="lt" style="background:rgba(239,68,68,.2);color:var(--no)">✗</span> Фейк</button>
-      </div>
-      <div class="wt" id="pW" style="display:none">Ждём соперника...</div>
-    </div>`));
-  }
-
-  if(r.type==='stake'){
-    const fh=r.facts.map((f,j)=>`<div id="sf${j}" style="opacity:0;transform:translateY(8px);transition:all .4s;margin-bottom:.4rem;padding:.5rem .8rem;background:var(--surface2);border-radius:9px;border-left:3px solid ${['var(--accent)','var(--accent3)','var(--accent2)'][j]}"><span style="font-weight:700;color:var(--dim);margin-right:.4rem">Факт ${j+1}:</span>${f}</div>`).join('');
-    RS[ri].q.push(mk(`<div class="qc">
-      <button class="bb" onclick="back()">← Назад</button>
-      <div class="ti cp"><div class="pd"></div> Ставка!</div>
-      <div class="qb">Раунд ${ri+1} • ×${r.w}</div>
-      <div style="max-width:420px;margin:0 auto .8rem">${fh}</div>
-      <button class="btn b2 bs" id="sRev" data-nx="0">Открыть факт 1 →</button>
-      <div id="skL" style="display:none;margin-top:.6rem;font-size:.8rem;color:var(--dim)">Ваша ставка:</div>
-      <div class="sr" id="skR" style="display:none">
-        <button class="sb_" data-sk="1">1</button><button class="sb_" data-sk="2">2</button><button class="sb_" data-sk="3">3</button>
-      </div>
-      <div class="ag" id="skO">${r.opts.map((o,oi)=>`<button class="ba sk-a" data-ri="${ri}" data-qi="0" data-oi="${oi}" style="display:none"><span class="lt">${'ABCD'[oi]}</span>${o}</button>`).join('')}</div>
-    </div>`));
-  }
-});
-
-const resI=mk(`<div class="res">
-  <div class="crn">🏆</div>
-  <div class="wn" id="rW">—</div>
-  <p style="color:var(--dim);margin-bottom:.4rem" id="rSb">—</p>
-  <div class="fc">
-    <div class="fcd"><div class="fn" id="fn1">—</div><div class="fv" id="fv1">0</div></div>
-    <div class="fcd"><div class="fn" id="fn2">—</div><div class="fv" id="fv2">0</div></div>
-  </div>
-  <p style="color:var(--accent);font-family:var(--fd);font-size:.75rem;font-weight:600;margin:.8rem 0">✅ Все механики протестированы!</p>
-  <button class="btn b1" onclick="location.reload()">Заново 🔄</button>
-</div>`);
-
-// ═══ GAME STATE ═══
-let scores=[0,0], curR=-1, timers={}, myStake=1, fRev=0, mSel={l:null,r:null}, mCnt=0;
-
-// ═══ LOBBY ═══
-document.getElementById('bCr').onclick=async()=>{
-  AU.e();AU.cl();
-  const nm=document.getElementById('iName').value.trim()||'Игрок 1';
-  ROOM=Math.random().toString(36).substring(2,6).toUpperCase();
-  ME=1;
-  await write('p1',{name:nm});
-  await write('phase','lobby');
-  document.getElementById('shCode').textContent=ROOM;
-  document.getElementById('lPlrs').innerHTML=`<div class="cb">✓ ${nm} (вы)</div>`;
-  go(1);
-  // Listen for p2
-  listen('p2',v=>{
-    if(!v)return;
-    document.getElementById('lPlrs').innerHTML=`<div class="cb">✓ ${nm} (вы)</div><div class="cb">✓ ${v.name}</div>`;
-    document.getElementById('wMsg').style.display='none';
-    document.getElementById('bSt').style.display='inline-flex';
-  });
-  listen('phase',v=>{if(v==='playing')startFromListen();});
-};
-
-document.getElementById('bJn').onclick=()=>{document.getElementById('jnUI').style.display='block';};
-
-document.getElementById('bJnGo').onclick=async()=>{
-  AU.e();AU.cl();
-  const nm=document.getElementById('iName').value.trim()||'Игрок 2';
-  const code=document.getElementById('iCode').value.trim().toUpperCase();
-  if(!code){document.getElementById('lSt').textContent='Введите код!';return;}
-  ROOM=code; ME=2;
-  document.getElementById('lSt').textContent='Подключение...';
-  const p1=await read('p1');
-  if(!p1){document.getElementById('lSt').innerHTML='Комната <b>'+ROOM+'</b> не найдена';return;}
-  await write('p2',{name:nm});
-  document.getElementById('shCode').textContent=ROOM;
-  document.getElementById('lPlrs').innerHTML=`<div class="cb">✓ ${p1.name}</div><div class="cb">✓ ${nm} (вы)</div>`;
-  document.getElementById('wMsg').textContent='Ожидание запуска...';
-  go(1);
-  listen('phase',v=>{if(v==='playing')startFromListen();});
-};
-
-document.getElementById('bSt').onclick=async()=>{
-  AU.rs();
-  await write('phase','playing');
-  await write('scores',[0,0]);
-};
-
-async function startFromListen(){
-  unlisten('phase');
-  const p1=await read('p1'), p2=await read('p2');
-  if(!p1||!p2)return;
-  document.getElementById('sn1').textContent=p1.name;
-  document.getElementById('sn2').textContent=p2.name;
-  if(ME===1)document.getElementById('sp1').classList.add('me');
-  else document.getElementById('sp2').classList.add('me');
-  showSB(true); hist=[];
-  goToRound(0);
-  // Live score sync
-  listen('scores',v=>{if(v){scores=v;updSc(v[0],v[1]);}});
+  showQ(0);
 }
 
-function goToRound(ri){
-  curR=ri;setRL(`Раунд ${ri+1}`);setDots(ri,R.length);AU.rs();go(RS[ri].intro);
-  if(R[ri].type==='private'){
-    setTimeout(()=>{
-      const q=ME===1?R[ri].q1:R[ri].q2;
-      const el=document.getElementById('pQ');
-      if(el)el.textContent='«'+q.fact+'»';
-    },100);
-  }
-}
+// ────── EMOJI ──────
+function runEmoji(ri){
+  const r = R[ri];
+  let qi = 0;
+  function showQ(qi){
+    if(qi >= r.qs.length){ showRoundSummary(ri); return; }
+    const q = r.qs[qi];
+    updDots(ri, qi, r.qs.length);
+    const idx = mk(`
+      <div class="qc">
+        <div class="qb">Вопрос ${qi+1} из ${r.qs.length}</div>
+        <div class="tt" id="tt_${ri}_${qi}">${r.time}</div>
+        <div class="tb"><div class="fl" id="tb_${ri}_${qi}" style="width:100%"></div></div>
+        <div class="eq">${q.emoji}</div>
+        <div class="fti">
+          <input class="inp" id="ei_${ri}_${qi}" placeholder="Введи ответ..." autocomplete="off">
+          <div style="margin-top:.5rem"><button class="btn b1 bs emoji-sub" id="es_${ri}_${qi}">Ответить</button></div>
+        </div>
+      </div>
+    `);
+    go(idx);
 
-// Round go buttons
-document.addEventListener('click',e=>{
-  const b=e.target.closest('.rgo');if(!b)return;AU.cl();
-  const ri=parseInt(b.dataset.ri);
-  go(RS[ri].q[0]);
-  if(R[ri].type==='compete'||R[ri].type==='blitz'){
-    R[ri].qs.forEach((_,qi)=>startTimer(ri,qi,R[ri].type==='blitz'?10:15));
-  }
-});
+    let answered = false;
 
-function startTimer(ri,qi,s){
-  let rem=s;const k=ri+'_'+qi;
-  const fl=document.getElementById('tf_'+k),tx=document.getElementById('tx_'+k);
-  timers[k]={start:Date.now(),iv:setInterval(()=>{
-    rem--;if(tx)tx.textContent=rem;if(fl)fl.style.width=(rem/s*100)+'%';
-    if(rem<=3&&rem>0)AU.tk();
-    if(rem<=0){clearInterval(timers[k].iv);document.querySelectorAll(`#ag_${k} .ba`).forEach(b=>b.classList.add('lk'));}
-  },1e3)};
-}
-
-// ═══ ANSWER HANDLER ═══
-document.addEventListener('click',async e=>{
-  const b=e.target.closest('.ba');if(!b||b.classList.contains('lk'))return;AU.cl();
-  const ri=parseInt(b.dataset.ri),qi=parseInt(b.dataset.qi),oi=b.dataset.oi;
-  const r=R[ri];
-  const tk=ri+'_'+qi;
-  const elapsed=timers[tk]?(Date.now()-timers[tk].start)/1e3:0;
-  // Lock
-  const grid=b.closest('.ag');
-  grid.querySelectorAll('.ba').forEach(x=>x.classList.add('lk'));
-  if(timers[tk])clearInterval(timers[tk].iv);
-  // Write answer to firebase
-  await write(`answers/r${ri}_q${qi}_p${ME}`,{answer:oi,time:elapsed,ts:Date.now()});
-
-  let ok=false, det='', pts=0;
-
-  if(r.type==='compete'||r.type==='blitz'){
-    const q=r.qs[qi];ok=parseInt(oi)===q.c;det=q.det||'Ответ: '+q.opts[q.c];
-    grid.querySelectorAll('.ba').forEach((x,i)=>{if(i===q.c)x.classList.add('ok');});
-    if(ok){b.classList.add('ok');AU.ok();const spd=elapsed<5?2:elapsed<10?1:0;pts=(1+spd)*r.w;scores[ME-1]+=pts;bump(ME);}
-    else{b.classList.add('no');AU.no();}
-    const se=document.getElementById('st_'+tk);if(se)se.textContent='Время: '+elapsed.toFixed(1)+'с';
-  }
-
-  if(r.type==='private'){
-    const q=ME===1?r.q1:r.q2;ok=(oi==='true')===q.ans;det=q.det;
-    if(ok){b.classList.add('ok');AU.ok();pts=r.w;scores[ME-1]+=pts;bump(ME);}
-    else{b.classList.add('no');AU.no();}
-  }
-
-  if(r.type==='stake'){
-    ok=parseInt(oi)===r.c;det=r.det;
-    grid.querySelectorAll('.ba').forEach((x,i)=>{if(i===r.c)x.classList.add('ok');});
-    if(ok){b.classList.add('ok');AU.ok();pts=myStake*r.w;scores[ME-1]+=pts;bump(ME);}
-    else{b.classList.add('no');AU.no();pts=-myStake;scores[ME-1]=Math.max(0,scores[ME-1]+pts);}
-  }
-
-  await write('scores',scores);updSc(scores[0],scores[1]);
-
-  // Check opponent answer
-  const oppKey=`answers/r${ri}_q${qi}_p${ME===1?2:1}`;
-  const opp=await read(oppKey);
-  let oppInfo='';
-  if(opp){
-    oppInfo=`Соперник: ${opp.time?.toFixed(1)||'?'}с`;
-  }
-
-  setTimeout(()=>{
-    showFB(ok?'🎉':'😬', ok?'Верно!':'Мимо!', det,
-      pts>0?`+${pts} (×${r.w})`:pts<0?`${pts}`:'',
-      elapsed>0?`Вы: ${elapsed.toFixed(1)}с ${oppInfo}`:'',
+    startTimer(r.time,
+      document.getElementById(`tt_${ri}_${qi}`),
+      document.getElementById(`tb_${ri}_${qi}`),
       ()=>{
-        if(r.type==='blitz'&&qi<r.qs.length-1){go(RS[ri].q[qi+1]);startTimer(ri,qi+1,10);}
-        else if(ri<R.length-1)goToRound(ri+1);
-        else showResults();
+        if(!answered){
+          answered=true;
+          const allAnswers = [...(q.answers.song||[]),...(q.answers.artist||[])];
+          showFeedback(false, 0, q.det+' (Ответ: '+allAnswers[0]+')', ()=>{
+            trigger(`emoji_${ri}_${qi}_done`);
+            nextEmojiQ(ri, qi);
+          });
+        }
       }
     );
-  },500);
-});
 
-// ═══ MATCH PAIRS (coop) ═══
-document.addEventListener('click',e=>{
-  const mi=e.target.closest('.mi');if(!mi||mi.classList.contains('md'))return;AU.cl();
-  const side=mi.dataset.s;
-  document.querySelectorAll(`.mi[data-s="${side}"]`).forEach(m=>m.classList.remove('sel'));
-  mi.classList.add('sel');mSel[side]=mi.dataset.v;
-  if(mSel.l&&mSel.r){
-    const r=R[2];
-    const pr=r.pairs.find(p=>p.l===mSel.l&&p.r===mSel.r);
-    if(pr){
-      AU.ok();document.querySelectorAll('.mi.sel').forEach(m=>{m.classList.remove('sel');m.classList.add('md');});
-      mCnt++;scores[0]+=r.w;scores[1]+=r.w;updSc(scores[0],scores[1]);bump(1);bump(2);
-      write('scores',scores);
-      document.getElementById('mSt').textContent=`Найдено: ${mCnt}/${r.pairs.length}`;
-      if(mCnt===r.pairs.length){
-        setTimeout(()=>showFB('🤝','Команда!',`Все ${r.pairs.length} пары!`,`+${r.pairs.length} каждому`,'',()=>goToRound(3)),400);
+    const submit = ()=>{
+      if(answered) return;
+      const inp = document.getElementById(`ei_${ri}_${qi}`);
+      const val = inp.value.trim();
+      if(!val) return;
+      answered = true;
+      AU.cl();
+      stopTimer();
+
+      // Check song first (more points), then artist
+      const songMatch = q.answers.song ? FM.check(val, q.answers.song) : {match:false};
+      const artistMatch = q.answers.artist ? FM.check(val, q.answers.artist) : {match:false};
+
+      let ok=false, pts=0;
+      if(songMatch.match){
+        ok=true; pts=3*r.w;
+      } else if(artistMatch.match){
+        ok=true; pts=1*r.w;
       }
-    } else {
-      AU.no();document.querySelectorAll('.mi.sel').forEach(m=>{m.classList.add('wf');setTimeout(()=>m.classList.remove('wf','sel'),400);});
-      document.getElementById('mSt').textContent='Не совпало!';
-    }
-    mSel={l:null,r:null};
-  }
-});
+      if(ok) addScore(pts);
 
-// ═══ STAKE ═══
-document.getElementById('sRev')?.addEventListener('click',function(){
-  AU.cl();const n=parseInt(this.dataset.nx), r=R[5];
-  if(n<r.facts.length){
-    const el=document.getElementById('sf'+n);el.style.opacity='1';el.style.transform='translateY(0)';
-    fRev=n+1;
-    if(n+1<r.facts.length){this.textContent=`Открыть факт ${n+2} →`;this.dataset.nx=n+1;}
-    else{this.textContent='Все факты открыты';this.disabled=true;this.style.opacity='.4';this.dataset.nx=n+1;}
-    document.getElementById('skL').style.display='block';
-    document.getElementById('skR').style.display='flex';
-    document.querySelectorAll('.sk-a').forEach(b=>b.style.display='block');
-  }
-});
-document.querySelectorAll('.sb_').forEach(b=>{b.addEventListener('click',()=>{
-  AU.cl();document.querySelectorAll('.sb_').forEach(x=>x.classList.remove('pk'));
-  b.classList.add('pk');myStake=parseInt(b.dataset.sk);
-});});
+      showFeedback(ok, pts, q.det, ()=>{
+        trigger(`emoji_${ri}_${qi}_done`);
+        nextEmojiQ(ri, qi);
+      });
+    };
 
-// ═══ RESULTS ═══
-function showResults(){
-  AU.ff();confetti();go(resI);setRL('Финал');setDots(R.length,R.length);
-  const n1=document.getElementById('sn1').textContent,n2=document.getElementById('sn2').textContent;
-  document.getElementById('fn1').textContent=n1;document.getElementById('fn2').textContent=n2;
-  document.getElementById('fv1').textContent=scores[0];document.getElementById('fv2').textContent=scores[1];
-  if(scores[0]>scores[1]){document.getElementById('rW').textContent=n1;document.getElementById('rSb').textContent='Победа!';}
-  else if(scores[1]>scores[0]){document.getElementById('rW').textContent=n2;document.getElementById('rSb').textContent='Победа!';}
-  else{document.getElementById('rW').textContent='Ничья!';document.getElementById('rSb').textContent='Оба великолепны!';}
-  // Cleanup firebase room after 5 min
-  setTimeout(()=>{db.ref('rooms/'+ROOM).remove();},3e5);
+    document.getElementById(`es_${ri}_${qi}`).onclick = submit;
+    document.getElementById(`ei_${ri}_${qi}`).onkeydown = e=>{ if(e.key==='Enter') submit(); };
+  }
+
+  function nextEmojiQ(ri, qi){
+    let moved=false;
+    const tryMove=()=>{ if(!moved){moved=true; showQ(qi+1);} };
+    onTrigger(`emoji_${ri}_${qi}_done`, tryMove);
+  }
+
+  showQ(0);
 }
 
-go(0);
+// ────── STAKE ──────
+function runStake(ri){
+  const r = R[ri];
+  let qi = 0;
+  function showQ(qi){
+    if(qi >= r.qs.length){ showRoundSummary(ri); return; }
+    const q = r.qs[qi];
+    updDots(ri, qi, r.qs.length);
+
+    // Show first fact, reveal rest one by one
+    const idx = mk(`
+      <div class="qc">
+        <div class="qb">Вопрос ${qi+1} из ${r.qs.length}</div>
+        <div style="max-width:480px;margin:0 auto">
+          <div id="stk_facts_${ri}_${qi}">
+            <div style="background:var(--surface2);border-radius:12px;padding:.7rem 1rem;margin:.4rem 0;font-size:.85rem;border:1px solid rgba(255,255,255,.08)">
+              💡 ${q.facts[0]}
+            </div>
+          </div>
+          <div style="margin:.6rem 0">
+            <button class="btn b2 bs stk-reveal" id="stk_rev_${ri}_${qi}" ${q.facts.length<=1?'style="display:none"':''}>Открыть ещё факт 🔍</button>
+          </div>
+          <div style="font-size:.8rem;color:var(--dim);margin:.5rem 0">Твоя ставка:</div>
+          <div class="sr" id="stk_bet_${ri}_${qi}">
+            <button class="sb_ stk-b" data-bet="1">1</button>
+            <button class="sb_ stk-b" data-bet="2">2</button>
+            <button class="sb_ stk-b" data-bet="3">3</button>
+          </div>
+          <div id="stk_opts_${ri}_${qi}" style="display:none">
+            <div class="ag">
+              ${q.opts.map((o,i)=>`<button class="ba stk-ans" data-i="${i}">${o}</button>`).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    `);
+    go(idx);
+
+    let factIdx = 1;
+    let chosenBet = 0;
+    let answered = false;
+
+    // Reveal more facts
+    sls[idx].querySelector('.stk-reveal').onclick = ()=>{
+      if(factIdx < q.facts.length){
+        const cont = document.getElementById(`stk_facts_${ri}_${qi}`);
+        cont.innerHTML += `<div style="background:var(--surface2);border-radius:12px;padding:.7rem 1rem;margin:.4rem 0;font-size:.85rem;border:1px solid rgba(255,255,255,.08);animation:fu .3s ease forwards">💡 ${q.facts[factIdx]}</div>`;
+        factIdx++;
+        if(factIdx >= q.facts.length){
+          document.getElementById(`stk_rev_${ri}_${qi}`).style.display='none';
+        }
+      }
+    };
+
+    // Bet selection
+    sls[idx].querySelectorAll('.stk-b').forEach(btn=>{
+      btn.onclick = ()=>{
+        AU.cl();
+        sls[idx].querySelectorAll('.stk-b').forEach(b=>b.classList.remove('pk'));
+        btn.classList.add('pk');
+        chosenBet = parseInt(btn.dataset.bet);
+        // Show answer options
+        document.getElementById(`stk_opts_${ri}_${qi}`).style.display='block';
+      };
+    });
+
+    // Answer
+    sls[idx].querySelectorAll('.stk-ans').forEach(btn=>{
+      btn.onclick = ()=>{
+        if(answered || !chosenBet) return;
+        answered = true;
+        AU.cl();
+        const pick = parseInt(btn.dataset.i);
+        const ok = pick === q.c;
+        let pts = ok ? chosenBet*2*r.w : -chosenBet;
+        addScore(pts);
+
+        const btns = sls[idx].querySelectorAll('.stk-ans');
+        btns.forEach((b,i)=>{
+          b.classList.add('lk');
+          if(i===q.c) b.classList.add('ok');
+          if(i===pick && !ok) b.classList.add('no');
+        });
+
+        showFeedback(ok, pts, q.det, ()=>{
+          if(ok && q.clip) playClip(q.clip, q.clipStart||0, 6);
+          trigger(`stake_${ri}_${qi}_done`);
+          nextStakeQ(ri, qi);
+        });
+      };
+    });
+  }
+
+  function nextStakeQ(ri, qi){
+    let moved=false;
+    const tryMove=()=>{ if(!moved){moved=true; showQ(qi+1);} };
+    onTrigger(`stake_${ri}_${qi}_done`, tryMove);
+  }
+
+  showQ(0);
+}
+
+// ────── ALIAS ──────
+function runAlias(ri){
+  const r = R[ri];
+  // Determine roles: p1 describes in odd games, p2 in even (or based on room)
+  // For simplicity: Host (p1) describes first
+  const isDescriber = ME===1;
+  const cards = r.cards.slice(); // copy
+  let cardIdx = 0;
+  let aliasScore = 0;
+  let aliasRunning = false;
+
+  if(isDescriber){
+    // Describer sees cards, clicks "Угадал!" or "Пропуск"
+    const idx = mk(`
+      <div class="qc" style="padding-top:60px">
+        <div class="qb">Ты объясняешь!</div>
+        <div class="tt" id="alias_tt">${r.time}</div>
+        <div class="tb"><div class="fl" id="alias_tb" style="width:100%"></div></div>
+        <div class="alias-card" id="alias_card">Нажми «Старт» чтобы начать</div>
+        <div style="display:flex;gap:.6rem;justify-content:center;margin-top:.8rem">
+          <button class="btn b1" id="alias_start">Старт 🎤</button>
+        </div>
+        <div style="display:none;gap:.6rem;justify-content:center;margin-top:.8rem" id="alias_btns">
+          <button class="btn b1" id="alias_ok">Угадал! ✅</button>
+          <button class="btn b2" id="alias_skip">Пропуск ⏭️</button>
+        </div>
+        <div class="alias-score-big" id="alias_sc">0</div>
+      </div>
+    `);
+    go(idx);
+
+    document.getElementById('alias_start').onclick = ()=>{
+      AU.cl();
+      aliasRunning = true;
+      document.getElementById('alias_start').style.display='none';
+      document.getElementById('alias_btns').style.display='flex';
+      showCard();
+      trigger(`alias_${ri}_start`);
+      startTimer(r.time,
+        document.getElementById('alias_tt'),
+        document.getElementById('alias_tb'),
+        ()=>{
+          aliasRunning = false;
+          // Time's up
+          write(`alias_result/${ri}`, aliasScore);
+          trigger(`alias_${ri}_end`);
+          showAliasDone(ri, aliasScore);
+        }
+      );
+    };
+
+    function showCard(){
+      if(cardIdx >= cards.length){ cardIdx=0; } // cycle if needed
+      const c = cards[cardIdx];
+      document.getElementById('alias_card').innerHTML = `
+        <div>
+          <div style="font-size:1.1rem">${c.song}</div>
+          <div style="font-size:.7rem;color:var(--dim);margin-top:.3rem">${c.artist}</div>
+        </div>
+      `;
+    }
+
+    document.getElementById('alias_ok').onclick = ()=>{
+      if(!aliasRunning) return;
+      AU.ok();
+      aliasScore++;
+      const pts = 1 * r.w;
+      addScore(pts);
+      document.getElementById('alias_sc').textContent = aliasScore;
+      write(`alias_score/${ri}`, aliasScore);
+      cardIdx++;
+      showCard();
+    };
+
+    document.getElementById('alias_skip').onclick = ()=>{
+      if(!aliasRunning) return;
+      AU.cl();
+      cardIdx++;
+      showCard();
+    };
+
+  } else {
+    // Guesser — sees "Слушай и угадывай!"
+    const idx = mk(`
+      <div class="qc" style="padding-top:60px">
+        <div class="qb">Ты угадываешь!</div>
+        <div class="tt" id="alias_tt_g">—</div>
+        <div class="tb"><div class="fl" id="alias_tb_g" style="width:100%"></div></div>
+        <div class="alias-card">🎧 Слушай партнёра и называй ответ вслух!</div>
+        <div class="alias-score-big" id="alias_sc_g">0</div>
+        <div style="color:var(--dim);font-size:.8rem">Угадано карточек</div>
+      </div>
+    `);
+    go(idx);
+
+    // Wait for start
+    onTrigger(`alias_${ri}_start`, ()=>{
+      startTimer(r.time,
+        document.getElementById('alias_tt_g'),
+        document.getElementById('alias_tb_g'),
+        ()=>{}
+      );
+    });
+
+    // Listen for score updates
+    listen(`alias_score/${ri}`, val=>{
+      if(val!==null){
+        const scEl = document.getElementById('alias_sc_g');
+        if(scEl) scEl.textContent = val;
+        // Guesser also gets points
+        const diff = val - aliasScore;
+        if(diff > 0){
+          aliasScore = val;
+          addScore(diff * r.w);
+        }
+      }
+    });
+
+    // Wait for end
+    onTrigger(`alias_${ri}_end`, ()=>{
+      stopTimer();
+      read(`alias_result/${ri}`).then(total=>{
+        showAliasDone(ri, total||0);
+      });
+    });
+  }
+
+  function showAliasDone(ri, total){
+    stopTimer();
+    const doneIdx = mk(`
+      <div style="text-align:center;max-width:480px">
+        <div style="font-size:3rem;margin-bottom:.5rem">🎉</div>
+        <div style="font-family:var(--fd);font-size:1.3rem;font-weight:800;margin-bottom:.5rem">Раунд окончен!</div>
+        <div class="alias-score-big">${total}</div>
+        <div style="color:var(--dim);font-size:.85rem;margin-bottom:1rem">карточек угадано</div>
+        <button class="btn b1 alias-done-btn">Дальше →</button>
+      </div>
+    `);
+    go(doneIdx);
+
+    sls[doneIdx].querySelector('.alias-done-btn').onclick = ()=>{
+      trigger(`alias_${ri}_next`);
+      showRoundSummary(ri);
+    };
+    onTrigger(`alias_${ri}_next`, ()=>{
+      showRoundSummary(ri);
+    });
+  }
+}
+
+// ────── SOUND GUESS ──────
+function runSoundGuess(ri){
+  const r = R[ri];
+  let qi = 0;
+
+  function showQ(qi){
+    if(qi >= r.qs.length){ showRoundSummary(ri); return; }
+    const q = r.qs[qi];
+    updDots(ri, qi, r.qs.length);
+
+    const idx = mk(`
+      <div class="qc">
+        <div class="qb">Мелодия ${qi+1} из ${r.qs.length}</div>
+        <div class="sg-bar">
+          <div class="sg-time" id="sg_time_${ri}_${qi}">▶ Играет...</div>
+          <div class="sg-prog"><div class="sg-fill" id="sg_fill_${ri}_${qi}" style="width:0%"></div></div>
+        </div>
+        <div class="fti">
+          <input class="inp" id="sg_inp_${ri}_${qi}" placeholder="Песня или артист..." autocomplete="off">
+          <div style="margin-top:.5rem">
+            <button class="btn b1 bs sg-sub" id="sg_sub_${ri}_${qi}">Ответить 🎯</button>
+          </div>
+        </div>
+        <div style="color:var(--dim);font-size:.7rem;margin-top:.5rem">Песня = 3 очка × ${r.w}, артист = 1 очко × ${r.w}</div>
+      </div>
+    `);
+    go(idx);
+
+    let answered = false;
+    let songStartTime = Date.now();
+
+    // Countdown 3-2-1 then play
+    showCountdown(()=>{
+      songStartTime = Date.now();
+      const audio = playSong(q.src, q.startAt||0);
+      // Update progress bar
+      const fillEl = document.getElementById(`sg_fill_${ri}_${qi}`);
+      const timeEl = document.getElementById(`sg_time_${ri}_${qi}`);
+      const progInterval = setInterval(()=>{
+        if(!audio || audio.paused || answered){
+          clearInterval(progInterval);
+          return;
+        }
+        const elapsed = audio.currentTime - (q.startAt||0);
+        const total = r.time;
+        const pct = Math.min(100, (elapsed/total)*100);
+        if(fillEl) fillEl.style.width = pct+'%';
+        if(timeEl) timeEl.textContent = `▶ ${Math.floor(elapsed)}с`;
+      }, 200);
+
+      // Auto-stop after time
+      startTimer(r.time,null,null,()=>{
+        if(!answered){
+          answered=true;
+          stopSong();
+          showFeedback(false, 0, q.det, ()=>{
+            trigger(`sg_${ri}_${qi}_done`);
+            nextSGQ(ri, qi);
+          });
+        }
+      });
+    });
+
+    const submit = ()=>{
+      if(answered) return;
+      const inp = document.getElementById(`sg_inp_${ri}_${qi}`);
+      const val = inp.value.trim();
+      if(!val) return;
+      answered = true;
+      AU.cl();
+      stopTimer();
+      stopSong();
+
+      const elapsed = (Date.now()-songStartTime)/1000;
+      const songMatch = q.answers.song ? FM.check(val, q.answers.song) : {match:false};
+      const artistMatch = q.answers.artist ? FM.check(val, q.answers.artist) : {match:false};
+
+      let ok=false, pts=0;
+      if(songMatch.match){
+        ok=true; pts=3*r.w;
+        // Bonus for speed
+        if(elapsed<5) pts+=2;
+        else if(elapsed<10) pts+=1;
+      } else if(artistMatch.match){
+        ok=true; pts=1*r.w;
+      }
+      if(ok) addScore(pts);
+
+      showFeedback(ok, pts, q.det, ()=>{
+        trigger(`sg_${ri}_${qi}_done`);
+        nextSGQ(ri, qi);
+      });
+    };
+
+    document.getElementById(`sg_sub_${ri}_${qi}`).onclick = submit;
+    document.getElementById(`sg_inp_${ri}_${qi}`).onkeydown = e=>{ if(e.key==='Enter') submit(); };
+  }
+
+  function nextSGQ(ri, qi){
+    let moved=false;
+    const tryMove=()=>{ if(!moved){moved=true; showQ(qi+1);} };
+    onTrigger(`sg_${ri}_${qi}_done`, tryMove);
+  }
+
+  showQ(0);
+}
+
+function showCountdown(cb){
+  let n=3;
+  const div = document.createElement('div');
+  div.className='cd-overlay';
+  div.innerHTML=`<div class="cd-num">${n}</div>`;
+  document.body.appendChild(div);
+  AU.tk();
+  const iv = setInterval(()=>{
+    n--;
+    if(n>0){
+      div.innerHTML=`<div class="cd-num">${n}</div>`;
+      AU.tk();
+    } else {
+      clearInterval(iv);
+      div.innerHTML=`<div class="cd-num">🎵</div>`;
+      AU.cl();
+      setTimeout(()=>{
+        div.remove();
+        cb();
+      },500);
+    }
+  },1000);
+}
+
+// ────── BLITZ ──────
+function runBlitz(ri){
+  const r = R[ri];
+  let qi = 0;
+  function showQ(qi){
+    if(qi >= r.qs.length){ showRoundSummary(ri); return; }
+    const q = r.qs[qi];
+    updDots(ri, qi, r.qs.length);
+    const letters = ['A','B','C','D'];
+    const idx = mk(`
+      <div class="qc">
+        <div class="qb">⚡ Блиц ${qi+1} из ${r.qs.length}</div>
+        <div class="ti cp"><div class="pd"></div> ×${r.w}</div>
+        <div class="tt" id="tt_${ri}_${qi}">${r.time}</div>
+        <div class="tb"><div class="fl" id="tb_${ri}_${qi}" style="width:100%"></div></div>
+        <div class="qt">${q.text}</div>
+        <div class="ag">
+          ${q.opts.map((o,i)=>`<button class="ba bopt" data-i="${i}"><span class="lt">${letters[i]}</span>${o}</button>`).join('')}
+        </div>
+      </div>
+    `);
+    go(idx);
+
+    let answered = false;
+    const startTime = Date.now();
+
+    startTimer(r.time,
+      document.getElementById(`tt_${ri}_${qi}`),
+      document.getElementById(`tb_${ri}_${qi}`),
+      ()=>{
+        if(!answered){
+          answered=true;
+          const btns = sls[idx].querySelectorAll('.bopt');
+          btns.forEach((b,i)=>{
+            b.classList.add('lk');
+            if(i===q.c) b.classList.add('ok');
+          });
+          showFeedback(false, 0, q.det, ()=>{
+            trigger(`blitz_${ri}_${qi}_done`);
+            nextBlitzQ(ri, qi);
+          });
+        }
+      }
+    );
+
+    sls[idx].querySelectorAll('.bopt').forEach(btn=>{
+      btn.onclick = ()=>{
+        if(answered) return;
+        answered = true;
+        AU.cl();
+        stopTimer();
+        const pick = parseInt(btn.dataset.i);
+        const ok = pick === q.c;
+        const elapsed = (Date.now()-startTime)/1000;
+        let pts = 0;
+        if(ok){
+          pts = 1;
+          if(elapsed<3) pts+=2;
+          else if(elapsed<6) pts+=1;
+          pts *= r.w;
+          addScore(pts);
+        }
+        const btns = sls[idx].querySelectorAll('.bopt');
+        btns.forEach((b,i)=>{
+          b.classList.add('lk');
+          if(i===q.c) b.classList.add('ok');
+          if(i===pick && !ok) b.classList.add('no');
+        });
+        showFeedback(ok, pts, q.det, ()=>{
+          trigger(`blitz_${ri}_${qi}_done`);
+          nextBlitzQ(ri, qi);
+        });
+      };
+    });
+  }
+
+  function nextBlitzQ(ri, qi){
+    let moved=false;
+    const tryMove=()=>{ if(!moved){moved=true; showQ(qi+1);} };
+    onTrigger(`blitz_${ri}_${qi}_done`, tryMove);
+  }
+
+  showQ(0);
+}
+
+// ═══════════════════════════════════════
+// ROUND SUMMARY
+// ═══════════════════════════════════════
+let summaryShown = {};
+function showRoundSummary(ri){
+  if(summaryShown[ri]) return;
+  summaryShown[ri] = true;
+
+  const total = scores.p1 + scores.p2 || 1;
+  const p1pct = Math.round((scores.p1/total)*100);
+  const p2pct = 100 - p1pct;
+  const motivation = getMotivation(ri);
+
+  const isLast = ri >= R.length - 1;
+
+  const idx = mk(`
+    <div class="rsm">
+      <div class="rsm-t">${R[ri].icon} ${R[ri].name} — итоги</div>
+      <div class="rsm-sc">
+        <div class="rsm-p">
+          <div class="rsm-n">${names.p1||'P1'}</div>
+          <div class="rsm-v ${scores.p1>=scores.p2?'ld':''}">${scores.p1}</div>
+        </div>
+        <div class="rsm-p">
+          <div class="rsm-n">${names.p2||'P2'}</div>
+          <div class="rsm-v ${scores.p2>=scores.p1?'ld':''}">${scores.p2}</div>
+        </div>
+      </div>
+      <div class="rsm-bar">
+        <div style="width:${p1pct}%;background:var(--accent3)"></div>
+        <div style="width:${p2pct}%;background:var(--accent2)"></div>
+      </div>
+      <div class="rsm-msg">${motivation}</div>
+      <button class="btn b1">${isLast?'Результаты 🏆':'Дальше →'}</button>
+    </div>
+  `);
+  go(idx);
+
+  sls[idx].querySelector('.btn').onclick = ()=>{
+    AU.cl();
+    trigger(`summary_${ri}_done`);
+    if(isLast) showResults();
+    else startRound(ri+1);
+  };
+  onTrigger(`summary_${ri}_done`, ()=>{
+    if(isLast) showResults();
+    else startRound(ri+1);
+  });
+}
+
+// ═══════════════════════════════════════
+// FINAL RESULTS
+// ═══════════════════════════════════════
+let resultsShown = false;
+function showResults(){
+  if(resultsShown) return;
+  resultsShown = true;
+
+  const winner = scores.p1 > scores.p2 ? names.p1 : scores.p2 > scores.p1 ? names.p2 : null;
+  const tie = scores.p1 === scores.p2;
+
+  AU.ff();
+  spawnConfetti();
+
+  const idx = mk(`
+    <div class="res">
+      <div class="crn">🏆</div>
+      <div class="wn">${tie?'Ничья!':winner+' побеждает!'}</div>
+      <div style="color:var(--dim);margin-bottom:.8rem;font-size:.9rem">${tie?'Невероятно — абсолютная ничья!':'Поздравляем победителя!'}</div>
+      <div class="fc">
+        <div class="fcd">
+          <div class="fn">${names.p1||'P1'}</div>
+          <div class="fv">${scores.p1}</div>
+        </div>
+        <div class="fcd">
+          <div class="fn">${names.p2||'P2'}</div>
+          <div class="fv">${scores.p2}</div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem">
+        <button class="btn b1" onclick="location.reload()">Играть снова 🔄</button>
+      </div>
+    </div>
+  `);
+  go(idx);
+
+  // Auto-delete room after 5 min
+  setTimeout(()=>{
+    if(ROOM) db.ref(`rooms/${ROOM}`).remove().catch(()=>{});
+  }, 5*60*1000);
+}
+
+function spawnConfetti(){
+  const colors=['#f0c040','#ff6b6b','#4ecdc4','#a78bfa','#22c55e','#ff9f43'];
+  for(let i=0;i<60;i++){
+    const el=document.createElement('div');
+    el.className='cnf';
+    el.style.cssText=`left:${Math.random()*100}vw;font-size:${12+Math.random()*16}px;animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*2}s;color:${colors[Math.random()*colors.length|0]}`;
+    el.textContent=['🎵','🎶','⭐','✨','🎉','🎊','🏆'][Math.random()*7|0];
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),6000);
+  }
+}
+
+// ═══════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════
+buildLobby();
 </script>
 </body>
 </html>
